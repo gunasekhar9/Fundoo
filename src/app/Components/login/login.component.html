@@ -1,0 +1,38 @@
+<div class="outer" fxLayoutAlign="center">
+    <mat-card class="design" fxFlex="25">
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <h1>
+                    <span style="color:blue">F</span> 
+                    <span style="color:red">u</span>
+                    <span style="color:yellow">n</span>
+                    <span style="color:blue">d</span>
+                    <span style="color:green">o</span>
+                    <span style="color:red">o</span>
+                </h1>
+                <h1>Sign in</h1>
+                <p>with your Fundoo Account</p>
+            </div>
+            <div fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email or Phone</mat-label>
+                    <input matInput formControlName="email" >
+                    <mat-error>email is required</mat-error>
+                </mat-form-field> 
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password" >
+                    <mat-error>password is required</mat-error>
+                    <mat-icon matSuffix (click)="togglePasswordVisibility()">{{showPassword?'visibility_off':''}}</mat-icon>
+                </mat-form-field> 
+                <a mat-button class="l1" routerLink="/forgotpassword">Forgot password?</a>
+                <mat-checkbox>Remember me</mat-checkbox>
+            </div>
+            <div class="last" fxLayout="row">
+                <a mat-button class="l3" routerLink="/signup">Create account</a>
+                <button mat-flat-button class="btn">Log In</button>
+            </div>
+        </form>
+    </mat-card>
+</div>
