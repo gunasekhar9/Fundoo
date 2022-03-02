@@ -1,16 +1,18 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LoginComponent } from 'src/app/Components/login/login.component';
-import { ResetpasswordComponent } from 'src/app/Components/resetpassword/resetpassword.component';
-import { SignupComponent } from 'src/app/Components/signup/signup.component';
 import { HttpService } from '../httpService/http.service';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  token:any
+  constructor(private httpService:HttpService) { 
+    this.token= localStorage.getItem("token")
+  }
 
-  constructor(private httpService:HttpService) { }
-  signup(data:any)
+  Signup(data:any)
 {
   let headersObject= {
     headers: new HttpHeaders(
@@ -19,10 +21,10 @@ export class UserService {
       }
     )
   }
- console.log("signup called in service user",data);
- this.httpService.postService('/user/userSignUp',data,false,headersObject)
-
+ console.log("signup called in service user",data)
+ return this.httpService.postService('/user/userSignUp',data,false,headersObject)
 }
+
 login(data:any)
 {
   let headersObject= {
@@ -32,15 +34,31 @@ login(data:any)
       }
     )
   }
- console.log("login called in service user",data);
- this.httpService.postService('/user/login',data,false,headersObject)
+ console.log("login called in service user")
+ return this.httpService.postService('/user/login',data,false,headersObject)
 }
-forgotpassword()
+
+forgotpassword(data:any)
 {
-  
+  let headersObject={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    }) 
+  }
+  console.log("Forgot called")
+  return this.httpService.postService('/user/reset',data,false,headersObject)
 }
-resetpassword()
-{
-    
-}
+
+resetpassword(data:any,token:any)
+ {
+  let headersObject={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':token
+    }) 
+  } 
+  console.log("Forgot called")
+  return this.httpService.postService('/user/reset-password',data,true,headersObject)
+ }
+ 
 }

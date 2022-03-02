@@ -9,13 +9,13 @@ import { UserService } from 'src/app/services/userService/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm:FormGroup;
+  loginForm: FormGroup;
   submitted=false;
   public showPassword: boolean = false;
 
   constructor(private formBuilder:FormBuilder, private userService:UserService) { }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(6)]]
@@ -30,7 +30,13 @@ export class LoginComponent implements OnInit {
        }
 
       console.log(this.loginForm.value);
-      this.userService.login(reqData).subscribe((Response:any)=>{console.log(Response);},(error: any)=>{console.log(error);})
+      //calling api in this place
+      this.userService.login(reqData).subscribe((Response:any)=>{
+        console.log("login Successfull",Response);
+        localStorage.setItem("token",Response.id)
+      },error =>{
+        console.log(error);
+      })      
       //calling api in this place
     }
     else{

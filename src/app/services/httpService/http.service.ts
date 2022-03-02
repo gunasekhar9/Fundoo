@@ -10,14 +10,14 @@ export class HttpService {
 
   BaseUrl = environment.BaseUrl;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http:HttpClient) { }
 
-  postService(url:string ,reqData:any, token: boolean=false, httpOptions: any={})
+  postService(url:string ,reqData:any, token: boolean=false,httpOptions: any={})
   {
      let options={
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }
-    return this.http.post(this.BaseUrl + url, reqData,options);
+    return this.http.post(this.BaseUrl + url, reqData, token && httpOptions);
   }
 
   getService(){
