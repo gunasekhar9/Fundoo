@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
       },error =>{
         console.log(error);
       })      
-      //calling api in this place
     }
     else{
       console.log("Form is not valid. Fill the form correctly");

@@ -1,0 +1,75 @@
+.keeplogo {
+    width : 40px;
+    height: 40px;
+}
+.heading{
+    padding-top: 8px;
+    font-weight:normal;
+    font-size: 22px;
+    color: #5f6368;
+}
+.searchBar {
+    margin-left: 180px;
+    width: 800px;
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid lightgrey;
+    background-color: #f1f3f4;
+}
+.search{
+    border-radius: 20px;
+    width: 55px
+}
+.stext{
+    border:none;
+    width: 545px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: #f1f3f4;
+}
+.stext:focus{
+    outline: none;
+}
+.headericons{
+    padding-left: 320px;
+    opacity: 0.6;
+}
+.drawer{
+    padding-left: 17px;
+}
+.toolbar{
+    background-color: white;
+    border-bottom: 0.1px solid rgb(201,199,199);
+}
+.sidenav-container{
+    flex:1;
+}
+.container1{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.btns{
+    opacity: 0.6;
+}
+.btns:hover{
+    opacity: 1;
+}
+.order:hover{
+    background-color: #feefc3;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.names{
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-right: 110px;
+}
+.content{
+    background-color: white;
+}

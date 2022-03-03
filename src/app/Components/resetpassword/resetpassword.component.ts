@@ -34,7 +34,7 @@ export class ResetpasswordComponent implements OnInit {
       console.log(this.resetpasswordForm.value);
       //calling api in this place
       this.userService.resetpassword(reqData,this.token).subscribe((response:any)=>{
-        console.log("resetpassword",response);
+        console.log("resetpassword changed successfuuly",response);
       },error =>{
         console.log(error);
       })

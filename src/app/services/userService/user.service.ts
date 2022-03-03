@@ -57,7 +57,7 @@ resetpassword(data:any,token:any)
       'Authorization':token
     }) 
   } 
-  console.log("Forgot called")
+  console.log("reset called")
   return this.httpService.postService('/user/reset-password',data,true,headersObject)
  }
  
