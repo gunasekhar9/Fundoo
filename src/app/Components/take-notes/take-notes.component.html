@@ -1,13 +1,18 @@
 <div class="container" fxLayoutAlign="center center">
     <mat-card fxFlex="45" fxLayout="column">
         <div>
-            <input class="ttext" matInput type="text" placeholder="Title"> 
+            <input class="ttext" matInput type="text" placeholder="Title" [(ngModel)]="title"> 
         </div>
         <div>
-            <input class="tnote" matInput type="text" placeholder="Take a Note ..."> 
+            <input class="tnote" matInput type="text" placeholder="Take a note ..."[(ngModel)]="description"> 
         </div>
-        <div>
+        <div fxLayout=row>
             <app-icons></app-icons>
+            <button class="cl" mat-flat-button (click)="add()">close</button>
         </div>
     </mat-card>
+
+
+
+
 </div>

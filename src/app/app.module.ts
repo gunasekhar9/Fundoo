@@ -24,7 +24,7 @@ import {MatListModule} from '@angular/material/list';
 import { DispalyNotesComponent } from './Components/dispaly-notes/dispaly-notes.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
 import { TakeNotesComponent } from './Components/take-notes/take-notes.component';
-
+import { AuthguardService } from './authguard.service';
 
 
 
@@ -60,7 +60,9 @@ import { TakeNotesComponent } from './Components/take-notes/take-notes.component
     MatListModule,
 
   ],
-  providers: [],
+  providers: [
+    AuthguardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

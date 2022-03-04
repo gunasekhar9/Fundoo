@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthguardService } from 'src/app/authguard.service';
 import { UserService } from 'src/app/services/userService/user.service';
 
 @Component({
@@ -11,16 +13,25 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted=false;
+  user='1';
   public showPassword: boolean = false;
 
-  constructor(private formBuilder:FormBuilder, private userService:UserService) { }
+  constructor(private formBuilder:FormBuilder, private userService:UserService, private authguardservice:AuthguardService, private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(6)]]
     });
+    localStorage.setItem("SessionUser",this.user)
   }
+
+  canActivate(): boolean {  
+    if (!this.authguardservice.gettoken()) {  
+        this.router.navigateByUrl("/login");  
+    }  
+    return this.authguardservice.gettoken();  
+}  
 
   login(){
     if(this.loginForm.valid){
