@@ -12,7 +12,7 @@ const routes: Routes = [
 {path:'signup',component:SignupComponent},
 {path:'forgotpassword',component:ForgotpasswordComponent},
 {path:'resetpassword/:token',component:ResetpasswordComponent},
-{path:'dashboard',component:DashboardComponent,canActivate:[AuthenticationGuard]}
+{path:'home',component:DashboardComponent,canActivate:[AuthenticationGuard]}
 ];
 
 @NgModule({

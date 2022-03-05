@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteServiceService } from 'src/app/services/noteService/note-service.service';
+
+
 @Component({
   selector: 'app-take-notes',
   templateUrl: './take-notes.component.html',
@@ -12,7 +14,15 @@ export class TakeNotesComponent implements OnInit {
   constructor( private noteService:NoteServiceService) { }
 
   ngOnInit(): void {
+    
   }
+  
+  isExpand=false
+  main()
+  {
+    return this.isExpand == true ? (this.isExpand = false) : (this.isExpand = true);
+  }
+  
 
   add(){
       let reqData = {

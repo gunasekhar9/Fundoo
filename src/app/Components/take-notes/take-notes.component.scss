@@ -1,25 +1,47 @@
+.container{
+    padding-top: 40px;
+}
 .ttext{
+    border: none;
+    font-size: 20px;
+    height: 25px;
+    width: 100%; 
+    outline: none;
+    padding-bottom: 10px;
+    opacity: 1;
+}
+.content{
     border:none;
     outline:none;
-    height: 16px;
-    width: 75px;
-    padding-bottom: 10px;
-    font-size: 15px;
+    height:18px;
+    width:100%;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .tnote{
-    border:none;
-    outline:none;
-    height:20px;
-    width:100%;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    height: 20px;
+    width: 100%; 
     padding-bottom: 10px;
     padding-top: 10px;
-    font-size: 15px;
 }
-.container{
-    padding-top: 50px;
-
+.main{
+    
+    border-color:lightgray;
+    border-width: 1px;
+    width: 535px;
+}
+.brush{
+    opacity: 0.6;
+    margin-left: 380px;
+}
 .cl{
     width: 70px;
     height: 30px;
-    margin-left: 120px;
-}}
+    font-size: 15px;
+    margin-left: 150px;
+    background-color: transparent;
+    border: none;
+  }
