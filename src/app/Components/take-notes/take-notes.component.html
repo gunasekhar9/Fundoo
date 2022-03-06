@@ -1,7 +1,7 @@
 <div class="container" fxLayoutAlign="center center">
-    <div *ngIf="!isExpand" (click)="main()">
-        <mat-card class="main" fxLayout="column"> 
-          <input class="content" matInput type="textbox" placeholder="Take a note..."> 
+    <div class="main" *ngIf="!isExpanded" (click)="main()">
+        <mat-card class="main2" fxFlex="126" fxLayout="column"> 
+          <input class="main3" matInput type="textbox" placeholder="Take a note..."> 
             <div class="brush" fxLayout="row" fxLayouGap="20px">
               <button mat-icon-button><img src="assets/check_box_black_24dp.svg"></button>  
               <button mat-icon-button><img src="assets/brush_black_24dp.svg"></button>
@@ -9,17 +9,17 @@
             </div> 
         </mat-card>
     </div>
-    <div *ngIf="isExpand">
-        <mat-card fxFlex="45" fxLayout="column">
+    <div class="main4" *ngIf="isExpanded">
+        <mat-card class="main5" fxFlex="126" fxLayout="column">
             <div>
-                <input class="ttext" matInput type="text" placeholder="Title" [(ngModel)]="title"> 
+                <input class="ttext" matInput type="text" [(ngModel)]="title" placeholder="Title" > 
             </div>
             <div>
-                <input class="tnote" matInput type="text" placeholder="Take a note ..."[(ngModel)]="description"> 
+                <textarea class="tnote" matInput type="text" [(ngModel)]="description" placeholder="Take a note ..."></textarea> 
             </div>
             <div fxLayout=row>
                 <app-icons></app-icons>
-                <button class="cl" mat-flat-button (click)="add()">close</button>
+                <button class="cl" mat-flat-button (click)="isExpanded=!isExpanded" (click)="add()">close</button>
             </div>
         </mat-card>
     </div>

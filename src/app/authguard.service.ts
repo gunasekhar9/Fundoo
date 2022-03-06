@@ -6,8 +6,9 @@ import { Injectable } from '@angular/core';
 export class AuthguardService {
 
   constructor() { }
-  gettoken(){  
-    return !!localStorage.getItem("SeesionUser");  
-    }  
-}
 
+  gettoken()
+  {  
+    return !!localStorage.getItem("SeesionUser");  
+  }  
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteService } from 'src/app/services/noteService/note.service';
+
 
 @Component({
   selector: 'app-get-all-notes',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetAllNotesComponent implements OnInit {
 
-  constructor() { }
+  token:any;
+  notesarray:any;
+
+  constructor(private noteService: NoteService) { }
 
   ngOnInit(): void {
+    this.getallnotes()
+  }
+
+  getallnotes()
+  {
+    this.noteService.getallnotes().subscribe((Response:any)=>{
+      this.notesarray=Response.data.data;
+      console.log(this.notesarray);
+    },(error)=>{console.log(error)});
   }
 
 }

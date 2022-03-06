@@ -5,7 +5,8 @@ import { HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class NoteServiceService {
+
+export class NoteService {
   token:any
 
   constructor(private httpService:HttpService) { 
@@ -21,7 +22,19 @@ export class NoteServiceService {
         }
       )
     }
-   console.log("take notes called")
+   console.log("take notes called in service", data)
    return this.httpService.postService('/notes/addNotes',data,true,headersObject)
   }
+
+  getallnotes()
+   {
+    let headersObject = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    console.log("get-all-notes called in service notes");
+    return this.httpService.getService('/notes/getNotesList',headersObject)
+   }
 }

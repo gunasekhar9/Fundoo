@@ -35,16 +35,17 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.loginForm.valid){
-      let reqData = {
+      let reqData = 
+      {
         email:this.loginForm.value.email,
         password:this.loginForm.value.password
-       }
+      }
 
       console.log(this.loginForm.value);
       //calling api in this place
       this.userService.login(reqData).subscribe((Response:any)=>{
-        console.log("login Successfull",Response);
-        localStorage.setItem("token",Response.id)
+        console.log("login Successfull", Response);
+        localStorage.setItem("token", Response.id)
         this.router.navigateByUrl('/home');
       },error =>{
         console.log(error);

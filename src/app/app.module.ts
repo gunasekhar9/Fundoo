@@ -21,10 +21,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { IconsComponent } from './Components/icons/icons.component';
 import {MatListModule} from '@angular/material/list';
-import { DispalyNotesComponent } from './Components/dispaly-notes/dispaly-notes.component';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
 import { TakeNotesComponent } from './Components/take-notes/take-notes.component';
 import { AuthguardService } from './authguard.service';
+import { DisplayNotesComponent } from './Components/display-notes/display-notes/display-notes.component';
 
 
 
@@ -36,28 +36,29 @@ import { AuthguardService } from './authguard.service';
     ForgotpasswordComponent,
     ResetpasswordComponent,
     DashboardComponent,
+    TakeNotesComponent,
+    DisplayNotesComponent,
     IconsComponent,
-    DispalyNotesComponent,
-    GetAllNotesComponent,
-    TakeNotesComponent
+    GetAllNotesComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatInputModule,
     MatFormFieldModule,
+    MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatIconModule,
     FlexLayoutModule,
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
     MatListModule,
+    MatToolbarModule
 
   ],
   providers: [
