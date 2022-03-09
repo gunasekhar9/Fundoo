@@ -1,0 +1,15 @@
+<div class="container" fxLayout="column">
+    <mat-dialog-content>
+        <div>
+            <input class="ttext" matInput type="tx" [(ngModel)]="title">
+        </div>
+        <div>
+            <textarea class="tnone" [(ngModel)]="description"></textarea>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <app-icons>
+        </app-icons>
+        <button mat-flat-button (click)="update()" class="cl">close</button>
+    </mat-dialog-actions>
+</div>

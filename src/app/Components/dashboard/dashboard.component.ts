@@ -1,5 +1,7 @@
 import {MediaMatcher} from '@angular/cdk/layout';
+import { Token } from '@angular/compiler';
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,18 +10,36 @@ import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   mobileQuery: MediaQueryList;
-  isExpanded=false;
+  isExpanded= false;
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router:Router) {
+    this.mobileQuery = media.matchMedia('(max-width: 603px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
+  }
+
+  archive(){
+    this.router.navigate(['/home/archiveNotes']);
+  }
+
+  notes(){
+    this.router.navigate(['/home/notes']);
+  }
+
+  trash(){
+    this.router.navigate(['/home/trashNotes']);
+  }
+
+  LogOut(){
+    localStorage.removeItem("token");
+    this.router.navigate(["/login"])
   }
 
 }

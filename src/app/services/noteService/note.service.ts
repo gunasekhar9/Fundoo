@@ -7,14 +7,14 @@ import { HttpHeaders } from '@angular/common/http';
 })
 
 export class NoteService {
-  token:any
+  token: any
 
-  constructor(private httpService:HttpService) { 
-    this.token= localStorage.getItem("token")
+  constructor(private httpService: HttpService) {
+    this.token = localStorage.getItem("token")
   }
-  takenotes(data:any)
-  {
-    let headersObject= {
+
+  takenotes(data: any) {
+    let headersObject = {
       headers: new HttpHeaders(
         {
           'Content-Type': 'application/json',
@@ -22,19 +22,85 @@ export class NoteService {
         }
       )
     }
-   console.log("take notes called in service", data)
-   return this.httpService.postService('/notes/addNotes',data,true,headersObject)
+    console.log("take notes is called in service", data)
+    return this.httpService.postService('/notes/addNotes', data, true, headersObject)
   }
 
-  getallnotes()
-   {
+  getallnotes() {
+
+
     let headersObject = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': this.token
       })
     }
-    console.log("get-all-notes called in service notes");
-    return this.httpService.getService('/notes/getNotesList',headersObject)
-   }
+    console.log("get-all-notes is called in service notes");
+    return this.httpService.getService('/notes/getNotesList',true, headersObject)
+  }
+
+
+  removenotes(data: any) {
+    {
+      let headersObject = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.token
+        })
+      }
+      console.log("Delete note called");
+      return this.httpService.postService('/notes/trashNotes', data, true, headersObject)
+    }
+  }
+
+  updatenotes(data: any) {
+    let headersObject = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    console.log("update notes called");
+    return this.httpService.postService('/notes/updateNotes', data, true, headersObject)
+  }
+
+  archiveNotes(data: any) {
+    {
+      let headersObject = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.token
+        })
+      }
+      console.log("archive note called");
+      return this.httpService.postService('/notes/archiveNotes', data, true, headersObject)
+    }
+  }
+
+  getarchiveNotesList(){
+    {
+      let headersObject = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.token
+        })
+      }
+      console.log("get archive notes list is called");
+      return this.httpService.getService('/notes/getArchiveNotesList',true, headersObject)
+    }
+  }
+
+  gettrashNotesList(){
+    {
+      let headersObject = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.token
+        })
+      }
+      console.log("get Trash notes list is called");
+      return this.httpService.getService('/notes/getTrashNotesList',true, headersObject)
+    }
+  }
+
 }

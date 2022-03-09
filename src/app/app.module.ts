@@ -25,8 +25,12 @@ import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.c
 import { TakeNotesComponent } from './Components/take-notes/take-notes.component';
 import { AuthguardService } from './authguard.service';
 import { DisplayNotesComponent } from './Components/display-notes/display-notes/display-notes.component';
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDialogModule} from '@angular/material/dialog';
+import { UpdateComponent } from './Components/update/update/update.component';
+import { GetAllTrashNoteslistComponent } from './Components/get-all-trash-noteslist/get-all-trash-noteslist.component';
+import { GetAllArchiveNoteslistComponent } from './Components/get-all-archive-noteslist/get-all-archive-noteslist.component';
+import { ColourpaletteComponent } from './Components/colourpalette/colourpalette.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,11 @@ import { DisplayNotesComponent } from './Components/display-notes/display-notes/
     TakeNotesComponent,
     DisplayNotesComponent,
     IconsComponent,
-    GetAllNotesComponent
+    GetAllNotesComponent,
+    UpdateComponent,
+    GetAllTrashNoteslistComponent,
+    GetAllArchiveNoteslistComponent,
+    ColourpaletteComponent,
 
   ],
   imports: [
@@ -58,7 +66,9 @@ import { DisplayNotesComponent } from './Components/display-notes/display-notes/
     HttpClientModule,
     MatSidenavModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule,
+    MatDialogModule
 
   ],
   providers: [

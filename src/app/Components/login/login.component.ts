@@ -23,15 +23,16 @@ export class LoginComponent implements OnInit {
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(6)]]
     });
-    localStorage.setItem("SessionUser",this.user)
+    //localStorage.setItem("token",this.user)
+    //localStorage.setItem('first  Name')
   }
 
-  canActivate(): boolean {  
-    if (!this.authguardservice.gettoken()) {  
-        this.router.navigateByUrl("/login");  
-    }  
-    return this.authguardservice.gettoken();  
-}  
+//   canActivate(): boolean {  
+//     if (!this.authguardservice.gettoken()) {  
+//         this.router.navigate(["/login"]);  
+//     }  
+//     return this.authguardservice.gettoken();  
+// }  
 
   login(){
     if(this.loginForm.valid){
@@ -42,11 +43,10 @@ export class LoginComponent implements OnInit {
       }
 
       console.log(this.loginForm.value);
-      //calling api in this place
       this.userService.login(reqData).subscribe((Response:any)=>{
         console.log("login Successfull", Response);
         localStorage.setItem("token", Response.id)
-        this.router.navigateByUrl('/home');
+        this.router.navigate(['/home']);
       },error =>{
         console.log(error);
       })      

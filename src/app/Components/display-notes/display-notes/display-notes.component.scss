@@ -1,4 +1,19 @@
 .top{
-    padding-top: 100px;
-    padding-left: 100px;
+    padding-top: 81px;
+    padding-left: 90px;
+}
+.top2{
+    border-color: lightgray;
+    border-radius: 4%;
+    border-width: 1px;
+    border-style:solid;
+}
+.icons{
+    visibility: hidden;
+}
+.top2:hover .icons{
+    visibility: visible;
+}
+.top2.top2:hover{
+    box-shadow: rgba(0, 0, 0, 0.5) 1px 6px 9px;
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/noteService/note.service';
+
 
 @Component({
   selector: 'app-take-notes',
@@ -7,7 +8,8 @@ import { NoteService } from 'src/app/services/noteService/note.service';
   styleUrls: ['./take-notes.component.scss']
 })
 export class TakeNotesComponent implements OnInit {
- 
+ @Output() createNoteToRefresh=new EventEmitter<any>();
+
   title:any;
   description:any;
   isExpanded = false;
@@ -34,8 +36,10 @@ export class TakeNotesComponent implements OnInit {
   {
     this.noteService.takenotes(reqData).subscribe((Response:any) => {
       console.log(Response);
-      localStorage.setItem("token",Response.id)},
-      (error: any)=> {console.log(error);})
+     // localStorage.setItem("token",Response.id);
+      this.title=''; this.description='',
+    this.createNoteToRefresh.emit(Response)},
+      error=> {console.log(error);})
   }
   else{
     console.log("Form is not valid. Please Fill the form correctly");

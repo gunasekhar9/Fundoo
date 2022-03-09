@@ -9,6 +9,9 @@ import { ResetpasswordComponent } from './Components/resetpassword/resetpassword
 import { SignupComponent } from './Components/signup/signup.component';
 import { AuthenticationGuard } from './authentication.guard';
 import { GetAllNotesComponent } from './Components/get-all-notes/get-all-notes.component';
+import { DisplayNotesComponent } from './Components/display-notes/display-notes/display-notes.component';
+import { GetAllArchiveNoteslistComponent } from './Components/get-all-archive-noteslist/get-all-archive-noteslist.component';
+import { GetAllTrashNoteslistComponent } from './Components/get-all-trash-noteslist/get-all-trash-noteslist.component';
 
 
 const routes: Routes = [
@@ -17,7 +20,8 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent},
   {path:'forgotpassword',component:ForgotpasswordComponent},
   {path:'resetpassword/:token',component:ResetpasswordComponent},
-  {path:'home',component:DashboardComponent,canActivate:[AuthenticationGuard],children:[{path:'', redirectTo: "notes", pathMatch: 'full' },{path:'notes', component:GetAllNotesComponent}]},
+  {path:'home',component:DashboardComponent,canActivate:[AuthenticationGuard],
+  children:[{path:'', redirectTo: "notes", pathMatch: 'full' },{path:'notes', component:GetAllNotesComponent},{path: 'display', component:DisplayNotesComponent},{path: 'archiveNotes', component:GetAllArchiveNoteslistComponent},{path: 'trashNotes', component:GetAllTrashNoteslistComponent}]},
 ];
 
 @NgModule({
