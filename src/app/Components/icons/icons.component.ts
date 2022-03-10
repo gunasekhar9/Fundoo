@@ -14,8 +14,8 @@ import { GetAllTrashNoteslistComponent } from '../get-all-trash-noteslist/get-al
 export class IconsComponent implements OnInit {
 @Output() changeColorOfNote = new EventEmitter<any>();
 @Input() noteId :any;
-isShowIconsForTrash: boolean=true;
- isShowIconsForArchive: boolean=true;
+forviewTrash: boolean=false;
+forviewArchive: boolean=false;
 
 
 colours=['#ccff90','#a7ffeb','#E91E63','#cbf0f8','#9C27B0', '#C62828','#aecbfa','#fff7e6','#FBBC04','#536DFE', '#f28b82','#fbbc04','#fff475','#fdcfe8','#e6c9a8','#0080ff',]
@@ -25,12 +25,12 @@ colours=['#ccff90','#a7ffeb','#E91E63','#cbf0f8','#9C27B0', '#C62828','#aecbfa',
   ngOnInit(): void {
     let icon = this.route.snapshot.component;
     if(icon == GetAllTrashNoteslistComponent){
-      this.isShowIconsForTrash = false;
-      console.log(this.isShowIconsForTrash);
+      this.forviewTrash = true;
+      console.log(this.forviewTrash);
     }
     if(icon == GetAllArchiveNoteslistComponent){
-      this.isShowIconsForArchive = false;
-      console.log(this.isShowIconsForArchive);
+      this.forviewArchive = true;
+      console.log(this.forviewArchive);
     }
     console.log(this.noteId);
   }
@@ -80,6 +80,7 @@ colours=['#ccff90','#a7ffeb','#E91E63','#cbf0f8','#9C27B0', '#C62828','#aecbfa',
   }
 
   restore(){
+    
     console.log(this.noteId);
     let reqdata= {    
       noteIdList: [this.noteId.id],

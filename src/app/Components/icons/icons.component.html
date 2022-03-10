@@ -1,35 +1,24 @@
-<div *ngIf="!isShowIconsForTrash" class="container" fxLayout="row" fxLayoutGap="10px">
-    <button mat-icon-button><img src="assets/add_alert_black_18dp.svg"></button>
-    <button mat-icon-button><img src="assets/person_add_alt_black_18dp.svg"></button>
-    <button mat-icon-button><img src="assets/palette_black_18dp.svg"></button>
-    <button mat-icon-button><img src="assets/image_black_18dp.svg"></button>
-    <button mat-icon-button (click)="archive()"><img src="assets/archive_black_18dp.svg"></button>
-    <button mat-icon-button mat [matMenuTriggerFor]="more"><img src="assets/more_vert_black_18dp.svg"></button> 
-    <mat-menu #more="matMenu">
-        <button mat-menu-item (click)="remove()">Delete Note</button>
-    </mat-menu>  
-</div>
 <div class="container" fxLayout="row" fxLayoutGap="10px">
-    <div>
+    <div *ngIf="!forviewTrash">
         <button mat-icon-button matTooltip="Remind me"><img src="assets/add_alert_black_18dp.svg"></button>
         <button mat-icon-button matTooltip="Collaborator"><img src="assets/person_add_alt_black_18dp.svg"></button>
         <button mat-icon-button matTooltip="Background options" [mat-menu-trigger-for]="Colour"><img src="assets/palette_black_18dp.svg"></button>
         <mat-menu #Colour="matMenu">
         <div fxLayout="row" fxLayoutGap="9px">
-            <button class="pallete" *ngFor="let colour of colours" mat-mini-fab [style.background-color]="colour"(click)="colourpallete(colour)" ></button>
+            <button class="pallete" *ngFor="let colour of colours" mat-mini-fab [style.background-color]="colour" (click)="colourpallete(colour)" ></button>
         </div>
         </mat-menu>
         <button mat-icon-button matTooltip="Add image"><img src="assets/image_black_18dp.svg"></button>
-        <button mat-icon-button (click)="archive()" matTooltip="Archive"><img src="assets/archive_black_18dp.svg"></button>
-         <button mat-icon-button (click)="unarchive()" matTooltip="Un Archive"><img src="assets/unarchive_black_18dp.svg"></button>
+        <button mat-icon-button (click)="archive()" matTooltip="Archive" *ngIf="!forviewArchive"><img src="assets/archive_black_18dp.svg"></button>
+         <button mat-icon-button (click)="unarchive()" matTooltip="Un Archive" *ngIf="forviewArchive"><img src="assets/unarchive_black_18dp.svg"></button>
         <button mat-icon-button mat [matMenuTriggerFor]="more" matTooltip="More"><img src="assets/more_vert_black_18dp.svg"></button> 
         <mat-menu #more="matMenu">
             <button mat-menu-item (click)="remove()">Delete Note</button>
         </mat-menu>  
     </div>
-    <div class="view" *ngIf="!isShowIconsForTrash"> 
+    <div class="view" *ngIf="forviewTrash" fxLayout="row"> 
         <div>
-            <button mat-icon-button matTooltip="Delete forever" (click)="permanentdelete()"><img src="assets/delete_forever_black_18dp.svg"></button>
+            <button mat-icon-button matTooltip="Delete Permanently" (click)="permanentdelete()"><img src="assets/delete_forever_black_18dp.svg"></button>
         </div>
         <div>
             <button mat-icon-button matTooltip="Restore" (click)="restore()"><img src="assets/restore_from_trash_black_18dp.svg"></button>
