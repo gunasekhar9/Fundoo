@@ -18,7 +18,7 @@ forviewTrash: boolean=false;
 forviewArchive: boolean=false;
 
 
-colours=['#ccff90','#a7ffeb','#E91E63','#cbf0f8','#9C27B0', '#C62828','#aecbfa','#fff7e6','#FBBC04','#536DFE', '#f28b82','#fbbc04','#fff475','#fdcfe8','#e6c9a8','#0080ff',]
+colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb','#fdcfe8','#e6c9a8','#e8eaed','', '#f28b82','#fbbc04','#fff475','#fdcfe8','#e6c9a8','#0080ff',]
 
   constructor(private noteService:NoteService, private route: ActivatedRoute) { }
 
