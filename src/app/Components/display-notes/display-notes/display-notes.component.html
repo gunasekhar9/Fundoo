@@ -1,5 +1,5 @@
 <div class="top" fxFlexFill fxLayout="row wrap" fxLayoutGap="29px grid">
-    <div *ngFor="let note of allnotes" fxFlex="25%">
+    <div *ngFor="let note of allnotes | filter:searchkey"  fxFlex="25%">
         <mat-card class="top2" [style.background]="note.color">
             <div>
                 <mat-card-title (click)="openDialog(note)">{{note.title}}</mat-card-title>

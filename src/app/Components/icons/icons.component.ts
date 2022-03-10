@@ -18,7 +18,7 @@ forviewTrash: boolean=false;
 forviewArchive: boolean=false;
 
 
-colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb','#fdcfe8','#e6c9a8','#e8eaed','', '#f28b82','#fbbc04','#fff475','#fdcfe8','#e6c9a8','#0080ff',]
+colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb','#fdcfe8','#e6c9a8','#e8eaed','#f28b82','#fbbc04','#fff475','#fdcfe8','#e6c9a8','#0080ff']
 
   constructor(private noteService:NoteService, private route: ActivatedRoute) { }
 
@@ -35,8 +35,6 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
     console.log(this.noteId);
   }
 
-
-
   remove(){
     console.log(this.noteId);
     let reqdata= {    
@@ -46,8 +44,8 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
 
     this.noteService.removenotes(reqdata).subscribe((Response:any)=>{
       console.log(Response);
+      this.changeColorOfNote.emit("Note is Deleted");
   })
-  window.location.reload();
   }
 
 
@@ -61,8 +59,8 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
 
     this.noteService.archiveNotes(reqdata).subscribe((Response:any)=>{
       console.log(Response);
+      this.changeColorOfNote.emit("Note is archived");
   })
-  window.location.reload();
   }
 
   colourpallete(notecolor:any){
@@ -74,9 +72,8 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
     }
     this.noteService.colorpallete(reqdata).subscribe((Response:any)=>{
       console.log(Response);
-      this.changeColorOfNote.emit(notecolor)
+      this.changeColorOfNote.emit(notecolor);
   })
-  window.location.reload()
   }
 
   restore(){
@@ -86,11 +83,10 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
       noteIdList: [this.noteId.id],
       isDeleted: false, 
     }
-
     this.noteService.removenotes(reqdata).subscribe((Response:any)=>{
       console.log(Response);
   })
-  window.location.reload();
+  this.changeColorOfNote.emit("Note is Restored");
   }
 
 
@@ -103,6 +99,7 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
 
     this.noteService.archiveNotes(reqdata).subscribe((Response:any)=>{
       console.log(Response);
+      this.changeColorOfNote.emit("Note is unarchived");
   })
   }
 
@@ -113,7 +110,7 @@ colours=['#f28b82','#fbbc04','#fff475','#ccff90','#a7ffeb', '#aecbfa','#d7aefb',
       isDeleted: true, 
     }
     this.noteService.deletepermanently(reqData).subscribe((response:any)=> {console.log(response);});
-    window.location.reload();
+    this.changeColorOfNote.emit("permanently Deleted");
   }
 
 }

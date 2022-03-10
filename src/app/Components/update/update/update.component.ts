@@ -24,15 +24,13 @@ export class UpdateComponent implements OnInit {
 
   update(){
     let reqData = {
-      noteId:this.noteId,//
+      noteId:this.noteId,
       title:this.title,
       description:this.description
     }
 
     this.noteService.updatenotes(reqData).subscribe((Response:any)=>{console.log(Response);
-      window.location.reload()
     });
     this.matDialogRef.close()
   }
-
 }

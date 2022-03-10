@@ -4,8 +4,8 @@
         <button mat-icon-button matTooltip="Collaborator"><img src="assets/person_add_alt_black_18dp.svg"></button>
         <button mat-icon-button matTooltip="Background options" [mat-menu-trigger-for]="Colour"><img src="assets/palette_black_18dp.svg"></button>
         <mat-menu #Colour="matMenu">
-        <div fxLayout="row" fxLayoutGap="9px">
-            <button class="pallete" *ngFor="let colour of colours" mat-mini-fab [style.background-color]="colour" (click)="colourpallete(colour)" ></button>
+        <div class="pallete" fxLayoutGap="2px">
+            <button class="colors" *ngFor="let colour of colours" mat-mini-fab [style.background-color]="colour" (click)="colourpallete(colour)" ></button>
         </div>
         </mat-menu>
         <button mat-icon-button matTooltip="Add image"><img src="assets/image_black_18dp.svg"></button>

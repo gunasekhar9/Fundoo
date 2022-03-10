@@ -36,7 +36,6 @@ export class TakeNotesComponent implements OnInit {
   {
     this.noteService.takenotes(reqData).subscribe((Response:any) => {
       console.log(Response);
-     // localStorage.setItem("token",Response.id);
       this.title=''; this.description='',
     this.createNoteToRefresh.emit(Response)},
       error=> {console.log(error);})

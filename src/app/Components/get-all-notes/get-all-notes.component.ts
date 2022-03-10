@@ -9,9 +9,7 @@ import { NoteService } from 'src/app/services/noteService/note.service';
 })
 export class GetAllNotesComponent implements OnInit {
 
- // token: any;
   notesarray: any;
- // refresh:any;
 
   constructor(private noteService: NoteService) { }
 
@@ -35,5 +33,13 @@ export class GetAllNotesComponent implements OnInit {
         return data.isDeleted === false && data.isArchived === false;
       })
     })
+  }
+  colourchanged(e:any){
+    console.log(e);
+    this.getallnotes();
+  }
+  update(e:any){
+    console.log(e);
+    this.getallnotes();
   }
 }

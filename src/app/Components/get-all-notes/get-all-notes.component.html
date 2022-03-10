@@ -1,4 +1,4 @@
 <app-take-notes (createNoteToRefresh)="autoRefresh($event)"></app-take-notes>
 
 
-<app-display-notes fxLayout="row" [allnotes] ="notesarray"></app-display-notes>
+<app-display-notes fxLayout="row" (changeColorOfNote)="colourchanged($event)" (updateNoteToRefresh)="update($event)" [allnotes] ="notesarray"></app-display-notes>

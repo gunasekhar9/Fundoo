@@ -31,6 +31,7 @@ import { UpdateComponent } from './Components/update/update/update.component';
 import { GetAllTrashNoteslistComponent } from './Components/get-all-trash-noteslist/get-all-trash-noteslist.component';
 import { GetAllArchiveNoteslistComponent } from './Components/get-all-archive-noteslist/get-all-archive-noteslist.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FilterPipe } from './pipe/searchpipe/filter.pipe';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     UpdateComponent,
     GetAllTrashNoteslistComponent,
     GetAllArchiveNoteslistComponent,
+    FilterPipe,
     
 
   ],

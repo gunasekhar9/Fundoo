@@ -1,1 +1,1 @@
-<app-display-notes [allnotes]="trashNotes"></app-display-notes>
+<app-display-notes (changeColorOfNote)="restore($event)" [allnotes]="trashNotes"></app-display-notes>
