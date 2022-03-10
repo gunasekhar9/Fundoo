@@ -103,4 +103,40 @@ export class NoteService {
     }
   }
 
+  colorpallete(data: any) {
+    let headersObject = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    console.log("colour pallete in notes called");
+    return this.httpService.postService('/notes/changesColorNotes', data, true, headersObject)
+  }
+
+  deletepermanently(data: any) {
+    let headersObject = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': this.token
+      })
+    }
+    console.log("permanent delete note is called");
+    return this.httpService.postService('/notes/deleteForeverNotes', data, true, headersObject)
+  }
+
+  unarchiveNotes(data: any) {
+    {
+      let headersObject = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': this.token
+        })
+      }
+      console.log("un archive note called");
+      return this.httpService.postService('/notes/updateNotes', data, true, headersObject)////archive to add notes
+    }
+  }
+
+
 }

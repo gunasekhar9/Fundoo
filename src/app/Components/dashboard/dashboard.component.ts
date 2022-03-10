@@ -1,5 +1,4 @@
 import {MediaMatcher} from '@angular/cdk/layout';
-import { Token } from '@angular/compiler';
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -29,6 +28,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/home/archiveNotes']);
   }
 
+  unarchive(){
+    this.router.navigate(['/home/updateNotes']);
+  }
+
   notes(){
     this.router.navigate(['/home/notes']);
   }
@@ -41,5 +44,10 @@ export class DashboardComponent implements OnInit {
     localStorage.removeItem("token");
     this.router.navigate(["/login"])
   }
+
+  permanentdelete(){
+    this.router.navigate(['/home/archiveNotes']);
+  }
+
 
 }

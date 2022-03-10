@@ -9,8 +9,9 @@ import { NoteService } from 'src/app/services/noteService/note.service';
 })
 export class GetAllNotesComponent implements OnInit {
 
-  token: any;
+ // token: any;
   notesarray: any;
+ // refresh:any;
 
   constructor(private noteService: NoteService) { }
 
@@ -24,16 +25,10 @@ export class GetAllNotesComponent implements OnInit {
 
   }
 
-
-  autoRefresh1(data: any) {
-    console.log(data);
-    this.getallnotes();
-
-  }
-
   getallnotes() {
     this.noteService.getallnotes().subscribe((Response: any) => {
       this.notesarray = Response.data.data;
+      this.notesarray.reverse();
       console.log(this.notesarray);
       this.notesarray = this.notesarray.filter((data: any) => {
         console.log(data.isDeleted)

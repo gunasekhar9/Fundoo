@@ -23,4 +23,8 @@ export class DisplayNotesComponent implements OnInit {
     let dialogRef = this.matDialog.open(UpdateComponent, {width:'650px', data:note});
     dialogRef.afterClosed().subscribe(result=>{this.title;this.description;});
   }
+
+  colourchanged(e:any){
+  console.log(e)
+  }
 }   

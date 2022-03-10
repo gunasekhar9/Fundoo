@@ -30,7 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { UpdateComponent } from './Components/update/update/update.component';
 import { GetAllTrashNoteslistComponent } from './Components/get-all-trash-noteslist/get-all-trash-noteslist.component';
 import { GetAllArchiveNoteslistComponent } from './Components/get-all-archive-noteslist/get-all-archive-noteslist.component';
-import { ColourpaletteComponent } from './Components/colourpalette/colourpalette.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { ColourpaletteComponent } from './Components/colourpalette/colourpalette
     UpdateComponent,
     GetAllTrashNoteslistComponent,
     GetAllArchiveNoteslistComponent,
-    ColourpaletteComponent,
+    
 
   ],
   imports: [
@@ -68,7 +69,8 @@ import { ColourpaletteComponent } from './Components/colourpalette/colourpalette
     MatListModule,
     MatToolbarModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
 
   ],
   providers: [
