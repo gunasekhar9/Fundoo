@@ -1,5 +1,5 @@
 <div class="float-container" fxLayoutAlign="center">
-  <mat-card class="design" fxFlex="50" fxLayout="row">
+  <mat-card fxFlex.xs="95" fxFlex.sm="95" class="design" fxFlex="50" fxLayout="row">
     <div class="float-child">
       <form [formGroup]="signupForm" (ngsubmit)="signup()">
         <div fxlayout="column" fxLayoutAlign="start">
@@ -13,33 +13,33 @@
           </h1>
         </div>
         <h1>Create Your Fundoo Account</h1>
-        <div fxLayout="row">
-          <mat-form-field appearance="outline">
+        <div fxLayoutGap="10px" fxLayout="row">
+          <mat-form-field fxFlex.xs="100" appearance="outline">
             <mat-label>First name</mat-label>
             <input matInput formControlName="firstname">
             <mat-error>First name is required</mat-error>
           </mat-form-field>
-          <mat-form-field class="ln" appearance="outline">
+          <mat-form-field fxFlex.xs="100" appearance="outline">
             <mat-label>Last name</mat-label>
             <input matInput formControlName="lastname">
             <mat-error>Last name is required</mat-error>
           </mat-form-field>
         </div>
         <div fxLayout="column">
-          <mat-form-field class="un" appearance="outline">
+          <mat-form-field fxFlex.xs="98" fxFlex.sm="95" fxFlex.lg="80" class="us" appearance="outline">
             <mat-label>Username</mat-label>
             <input matInput formControlName="email">
             <mat-hint>You can use letters, numbers & periods</mat-hint>
             <mat-error>Username is required</mat-error>
           </mat-form-field>
         </div>
-        <div fxLayout="row">
-          <mat-form-field appearance="outline">
+        <div fxLayoutGap="10px" fxLayout="row">
+          <mat-form-field fxFlex.xs="100" appearance="outline">
             <mat-label>Password</mat-label>
             <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
             <mat-error>Password is required</mat-error>
           </mat-form-field>
-          <mat-form-field class="cp" appearance="outline">
+          <mat-form-field fxFlex.xs="100" appearance="outline">
             <mat-label>Confirm</mat-label>
             <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="confirm">
             <mat-error>Confirm Password is required</mat-error>
@@ -54,7 +54,7 @@
         </div>
       </form>
     </div>
-    <div class="float-child">
+    <div fxHide.sm="true" fxHide.xs="true" class="float-child">
       <img class="im" src="https://ssl.gstatic.com/accounts/signup/glif/account.svg">
       <p class="one">One Account. All Of Fundoo</p>
       <p class="work">Working For You.</p>
